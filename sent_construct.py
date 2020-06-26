@@ -1,3 +1,10 @@
+# -------------------------------------------------------
+# Author: Ashley Jablonski
+# Program: sent_construct.py
+# Description: functions for creating correct english  
+#       syntax in the script
+# -------------------------------------------------------
+
 import stop
 from nltk import tokenize
 import random as rand

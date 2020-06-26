@@ -1,3 +1,10 @@
+# -------------------------------------------------------
+# Author: Ashley Jablonski
+# Program: stop.py
+# Description: creates list of stop_words for both bdg.py and 
+#   sent_construct.py 
+# -------------------------------------------------------
+
 # mom and dad don't look at this it has swear words cuz BDG sometimes swears and we tryin to make this camp appropriate :)
 stop_words = [",", ".", "...", ":", "\"", "(", ")", "Brian", "BRIAN", "BDG", "Pat", "Patrick", "Clayton", "uh", "Uh", "um", "Um", 
 "hell", "HELL", "neat", "Neat", "NEAT", "cool", "Cool", "COOL", "on", "off", "over",
