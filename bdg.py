@@ -7,7 +7,8 @@
 
 # IMPORTS
 from pathlib import Path
-import nltk, random
+import nltk, re
+import random as rand
 from stop import stop_words
 
 import logging
@@ -45,6 +46,7 @@ all_transcripts = [bowser, castlevania, dark_souls, e3, fallout, fire_emblem, ga
 transcripts_list = []
 transcript_word_count = 0
 
+# puts all transcripts into one list, seperated by words
 for current_file in all_transcripts:    
     # list comprehension: joins words in file
     word_list = (' '.join([item for item in current_file]))
@@ -55,6 +57,25 @@ for current_file in all_transcripts:
     
 logging.debug("completed adding to all transcripts list: %s" %(transcripts_list))
 logging.debug("completed adding transcript length to list: %s" %(transcript_word_count))
+
+# # gets rid of any punctuation at beginning or end of word
+# begin_regex = re.compile(r'^\.?\*?\(?')
+# end_regex = re.compile(r'$\.\??\,?\;?\*?\)?')
+# for word in transcripts_list:
+#     remove = begin_regex.search(word)
+#     remove2 = end_regex.search(word)
+#     if remove != '' or remove != ' ':
+#         word = word[1:]
+#     elif remove2 != '' or remove2 != ' ':
+#         word = word[:-1]
+#     elif word[-1] == "n" and word[-2] == "\\":
+#         word = word[:-2]
+
+# gets rid of anything that isnt a a letter or number
+regex = re.compile(r'^\W|$\W')
+print(re.findall(r'^\W|$\W', "*hello my! fellow\\n friends. not these tho"))
+
+# print(transcripts_list)
 
 # word for word in transcripts_list if word not in stop_words
 transcripts_removed_list = []
@@ -71,31 +92,81 @@ transcripts_bigram = nltk.bigrams(transcripts_removed_list)
 logging.debug("file bigram: %s" %(transcripts_bigram))
 
 master_cfd = nltk.ConditionalFreqDist(transcripts_bigram)
+print(master_cfd)
 logging.debug("cfd created %s" %(master_cfd))
-
-#----COPIED FROM SETHS NLP----WILL CHANGE LATER
-def generate_text(cfd, n, word='', sz=10):
-  # if no starting word specified, use a random word in the conditional freq distrib
-  if not word or not cfd[word]:
-    # get random key
-    r = random.randint(0, len(cfd.keys())-1)
-    word = list(cfd.keys())[r]
-  
-  # loop through number of desired words, and use previous word as next key
-  for i in range(n):
-    # print current word
-    yield word
-    # index to get most common "sz" words and randomly select one as next word
-    word = random.choice(cfd[word].most_common()[:sz])[0]
-
-# 2670 = calculated avg word count of transcript
-print(' '.join([item for item in generate_text(master_cfd, 2670)]))
 
 # TODO: function for generating text - params: cfd, length of generated text, 
 #           starting word, sz << sz is how many words from cfd are grabbed
-def script_generator(cfd, script_length, start_word='', size=10):
+def script_generator(cfd, script_length, start_word='', size=5):
     # TODO: if no starting word, get random one
-    pass
-    # TODO: loop thru num of desired words and use prev word as next key
+    keys = list(cfd.keys())
+    if start_word == '' or (start_word not in keys):
+        x = rand.randint(0, len(keys) - 1)
+        start_word = keys[x]
 
-    # TODO: call function and print out result (to file?)
+    final_script = ""
+    script_list = []
+    # # TODO: loop thru num of desired words and use prev word as next key
+    for i in range(script_length):
+        yield start_word
+        print(start_word)
+        # randomly chooses btwn top 5 most common words after previous word
+        start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
+        print(start_word)
+        # checks if word before or two words before are same; if so word is changed
+        if len(script_list) >= 3:
+            if start_word == script_list[i-2]:
+                start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
+            elif start_word == script_list[i-1]:
+                start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
+            else:
+                pass
+        # if only two words in list, only word before is checked
+        elif len(script_list) == 2:
+            if start_word == script_list[i-1]:
+                start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
+            else:
+                pass
+        print(start_word)
+        # adds word to final script so it can be added to txt file
+        final_script = final_script + " " + start_word
+        script_list.append(start_word)
+
+    # writes script to .txt file
+    script_file = open('bdg_unraveled_script3.txt', "w")
+    script_file.write(final_script)
+    script_file.close()
+
+# TODO: call function and print out result (to file?)
+# 2670 = calculated avg length of unraveled script
+print(' '.join([item for item in script_generator(master_cfd, 30)]))
+
+
+# ------------------------------------------------------------------------------------
+# IMPROVEMENTS TO MAKE:
+# get rid of punctuation before/after words (i.e. "troops.", "*Crash", "No\n")
+# DONE -- don't let previous word = following word (i.e. "is is", "and and")
+# make it more sensible!!
+# can't begin/end with verb or with words like "the or with"
+# ------------------------------------------------------------------------------------
+
+
+# Code I tried but didn't work and will figure out why later:
+# final_script = []
+    # prev_word = start_word
+    # for x in range(script_length):
+    #     print(str(prev_word) + " " + str(x))
+    #     # randomly chooses btwn top 3 most common words after previous word
+    #     # if index doesn't exist, chooses first value of key
+    #     try:
+    #         new_word = rand.choice(cfd[prev_word].most_common()[:size][0])
+    #     except:
+    #         new_word = cfd[prev_word][0][0]
+    #         print("Exception made: only one possible outcome")
+    #     else:
+    #         new_word = rand.choice(cfd[prev_word].most_common()[:size][0])
+    #     final_script.append(new_word)
+    #     prev_word = new_word
+    #     print(prev_word)
+
+    # takes list and turns into string
