@@ -9,7 +9,7 @@
 from pathlib import Path
 import nltk, re
 import random as rand
-from stop import stop_words
+import stop, sent_construct
 
 import logging
 logging.basicConfig(filename = "log_bdg14.txt", level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
@@ -58,37 +58,19 @@ for current_file in all_transcripts:
 logging.debug("completed adding to all transcripts list: %s" %(transcripts_list))
 logging.debug("completed adding transcript length to list: %s" %(transcript_word_count))
 
-# # gets rid of any punctuation at beginning or end of word
-# begin_regex = re.compile(r'^\.?\*?\(?')
-# end_regex = re.compile(r'$\.\??\,?\;?\*?\)?')
-# for word in transcripts_list:
-#     remove = begin_regex.search(word)
-#     remove2 = end_regex.search(word)
-#     if remove != '' or remove != ' ':
-#         word = word[1:]
-#     elif remove2 != '' or remove2 != ' ':
-#         word = word[:-1]
-#     elif word[-1] == "n" and word[-2] == "\\":
-#         word = word[:-2]
-
-# gets rid of anything that isnt a a letter or number
-regex = re.compile(r'^\W|$\W')
-print(re.findall(r'^\W|$\W', "*hello my! fellow\\n friends. not these tho"))
-
-# print(transcripts_list)
 
 # word for word in transcripts_list if word not in stop_words
-transcripts_removed_list = []
-for word in transcripts_list:
-    if word in stop_words:
-        pass
-    else:
-        transcripts_removed_list.append(word)
+# transcripts_removed_list = []
+# for word in transcripts_list:
+#     if word in stop.stop_words:
+#         pass
+#     else:
+#         transcripts_removed_list.append(word)
 
-logging.debug("file after stop_words removed: %s" %(transcripts_removed_list))
+# logging.debug("file after stop_words removed: %s" %(transcripts_removed_list))
 
 # TODO: use bigram? trigram? model << try bi first then tri
-transcripts_bigram = nltk.bigrams(transcripts_removed_list)
+transcripts_bigram = nltk.bigrams(transcripts_list)
 logging.debug("file bigram: %s" %(transcripts_bigram))
 
 master_cfd = nltk.ConditionalFreqDist(transcripts_bigram)
@@ -109,10 +91,10 @@ def script_generator(cfd, script_length, start_word='', size=5):
     # # TODO: loop thru num of desired words and use prev word as next key
     for i in range(script_length):
         yield start_word
-        print(start_word)
+        
         # randomly chooses btwn top 5 most common words after previous word
         start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
-        print(start_word)
+        
         # checks if word before or two words before are same; if so word is changed
         if len(script_list) >= 3:
             if start_word == script_list[i-2]:
@@ -127,19 +109,28 @@ def script_generator(cfd, script_length, start_word='', size=5):
                 start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
             else:
                 pass
-        print(start_word)
+        
+        if i == script_length:
+            
+            while(word in stop.verbs or word in stop.dont_end):
+                start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
+                print("retried final word...")
+
         # adds word to final script so it can be added to txt file
         final_script = final_script + " " + start_word
         script_list.append(start_word)
 
+    # sent_construct.sensible_words(cfd, script_list, script_length)
+    sent_construct.sense_words_lite(cfd, script_list, script_length)
+
     # writes script to .txt file
-    script_file = open('bdg_unraveled_script3.txt', "w")
+    script_file = open('bdg_unraveled_script6.txt', "w")
     script_file.write(final_script)
     script_file.close()
 
 # TODO: call function and print out result (to file?)
 # 2670 = calculated avg length of unraveled script
-print(' '.join([item for item in script_generator(master_cfd, 30)]))
+print(' '.join([item for item in script_generator(master_cfd, 70)]))
 
 
 # ------------------------------------------------------------------------------------
@@ -148,6 +139,7 @@ print(' '.join([item for item in script_generator(master_cfd, 30)]))
 # DONE -- don't let previous word = following word (i.e. "is is", "and and")
 # make it more sensible!!
 # can't begin/end with verb or with words like "the or with"
+# if word ends with * then words before it should too?
 # ------------------------------------------------------------------------------------
 
 
@@ -170,3 +162,28 @@ print(' '.join([item for item in script_generator(master_cfd, 30)]))
     #     print(prev_word)
 
     # takes list and turns into string
+
+    
+# # gets rid of any punctuation at beginning or end of word
+# end_char_stops = ['.', '!', '?', '*', '\'', '\"', '(', ')']
+# count = 0
+# for word in transcripts_list:
+#     print(word)
+#     for char in end_char_stops:
+#         try:
+#             if char in word[0]:
+#                 transcripts_list[count] = word[1:]
+#                 print("B")
+#             elif word[-1] == "n" and word[-2] == "\\":
+#                 transcripts_list[count] = word[:-2]
+#                 print("N")
+#             else:
+#                 pass
+            
+#             if char in word[-1]:
+#                 transcripts_list[count] = word[:-1]
+#                 print("E")
+#         except:
+#             print("none")
+
+#     count += 1        

@@ -10,12 +10,11 @@ from pathlib import Path
 import nltk, re
 import random as rand
 import stop
-from nltk import tokenize
 
 import logging
-logging.basicConfig(filename = "log_bdg14.txt", level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
-logging.basicConfig(filename = "log_bdg14.txt", level=logging.ERROR, format=' %(asctime)s - %(levelname)s - %(message)s')
-logging.disable(logging.DEBUG)
+logging.basicConfig(filename = "trilog_bdg1.txt", level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(filename = "trilog_bdg1.txt", level=logging.ERROR, format=' %(asctime)s - %(levelname)s - %(message)s')
+# logging.disable(logging.DEBUG)
 logging.debug("Start of program")
  
 # TODO: get transcripts + transcripts into lists
@@ -48,15 +47,16 @@ transcripts_list = []
 transcript_word_count = 0
 
 # puts all transcripts into one list, seperated by words
-for current_file in all_transcripts: 
-    x = tokenize.word_tokenize(' '.join([word for word in current_file]))
-    transcripts_list.append(x)
-
-# print results
-print(transcripts_list)
+for current_file in all_transcripts[1:2]:    
+    # list comprehension: joins words in file
+    word_list = (' '.join([item for item in current_file]))
+    logging.debug("current word list: %s" %(word_list) )
+    word_list = word_list.split(' ')
+    logging.debug("word list after .split(): %s" %(word_list) )
+    transcript_word_count += (len(word_list))
+    for i in range(len(word_list)):
+        transcripts_list.append(word_list[i])
     
-breakpoint
-
 logging.debug("completed adding to all transcripts list: %s" %(transcripts_list))
 logging.debug("completed adding transcript length to list: %s" %(transcript_word_count))
 
@@ -72,10 +72,10 @@ for word in transcripts_list:
 logging.debug("file after stop_words removed: %s" %(transcripts_removed_list))
 
 # TODO: use bigram? trigram? model << try bi first then tri
-transcripts_bigram = nltk.bigrams(transcripts_removed_list)
-logging.debug("file bigram: %s" %(transcripts_bigram))
+transcripts_trigram = nltk.trigrams(transcripts_removed_list)
+logging.debug("file trigram: %s" %(transcripts_trigram))
 
-master_cfd = nltk.ConditionalFreqDist(transcripts_bigram)
+master_cfd = nltk.ConditionalFreqDist(transcripts_trigram)
 print(master_cfd)
 logging.debug("cfd created %s" %(master_cfd))
 
@@ -113,8 +113,8 @@ def script_generator(cfd, script_length, start_word='', size=5):
                 pass
         
         if i == script_length:
-            
-            while(word in stop.verbs or word in stop.dont_end):
+            print("final word")
+            while(word in stop.verbs or word in stop.dont_end):                
                 start_word = rand.choice(cfd[start_word].most_common()[:size])[0]
                 print("retried final word...")
 
