@@ -29,7 +29,7 @@ def sense_words_lite(cfd, current_script, script_size, size=3):
     # last word not a conjuction verb or other "dont end word" found in stop.py
     while end_word in stop.dont_end or end_word in stop.conjunction or end_word in stop.verbs:
         last_sent = sent_script[-1]
-        logging.debug("redo last sentence: " %(last_sent))
+        logging.debug("redo last sentence: %s" %(last_sent))
         last_sent = last_sent.split(' ')
         new_last_sent = " "
         
