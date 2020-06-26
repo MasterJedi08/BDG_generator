@@ -124,21 +124,21 @@ def script_generator(cfd, script_length, start_word='', size=5):
     sent_construct.sense_words_lite(cfd, script_list, script_length)
 
     # writes script to .txt file
-    script_file = open('bdg_unraveled_script6.txt', "w")
+    script_file = open('bdg_unraveled_script8.txt', "w")
     script_file.write(final_script)
     script_file.close()
 
 # TODO: call function and print out result (to file?)
 # 2670 = calculated avg length of unraveled script
-print(' '.join([item for item in script_generator(master_cfd, 70)]))
+print(' '.join([item for item in script_generator(master_cfd, 2670)]))
 
 
 # ------------------------------------------------------------------------------------
 # IMPROVEMENTS TO MAKE:
 # get rid of punctuation before/after words (i.e. "troops.", "*Crash", "No\n")
 # DONE -- don't let previous word = following word (i.e. "is is", "and and")
-# make it more sensible!!
-# can't begin/end with verb or with words like "the or with"
+# TRIED -- make it more sensible!!
+# DONE -- (tho sometimes it fails) -- can't begin/end with verb or with words like "the or with"
 # if word ends with * then words before it should too?
 # ------------------------------------------------------------------------------------
 

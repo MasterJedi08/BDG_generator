@@ -1,23 +1,27 @@
 import stop
 from nltk import tokenize
 import random as rand
+import logging
+logging.basicConfig(filename = "log_sent1.txt", level=logging.DEBUG, format=' %(asctime)s - %(levelname)s - %(message)s')
+logging.disable(logging.DEBUG)
+logging.debug("Start of program")
 
 def sense_words_lite(cfd, current_script, script_size, size=3):
     first_word = current_script[0]
-    print(first_word)
+    logging.debug("first word: %s" %(first_word))
     # check if first word in verbs or not captitalized
     while first_word in stop.verbs or (first_word[0].isupper() == False):
         first_word = rand.choice(cfd[first_word].most_common()[:size])[0]
         current_script[0] = first_word
-        print("changed first word" + first_word)
+        logging.debug("changed first word %s" %(first_word))
 
 
     
     str_script = (' '.join([item for item in current_script]))
     sent_script = tokenize.sent_tokenize(str_script)
-    print(sent_script)
+    logging.debug("sentence tokenized script" %(sent_script))
     end_word = current_script[-1]
-    print(end_word)
+    logging.debug("end word: %s" %(end_word))
 
     redone_last = False
 
@@ -25,7 +29,7 @@ def sense_words_lite(cfd, current_script, script_size, size=3):
     # last word not a conjuction verb or other "dont end word" found in stop.py
     while end_word in stop.dont_end or end_word in stop.conjunction or end_word in stop.verbs:
         last_sent = sent_script[-1]
-        print("redo" + last_sent)
+        logging.debug("redo last sentence: " %(last_sent))
         last_sent = last_sent.split(' ')
         new_last_sent = " "
         
@@ -39,7 +43,7 @@ def sense_words_lite(cfd, current_script, script_size, size=3):
         # failsafe if it cant find any other words (it kept breaking VS code)
         count+=1
         if count == 10:
-            print("failsafe break")
+            logging.debug("failsafe break")
             redone_last == False
             break
 
@@ -48,7 +52,7 @@ def sense_words_lite(cfd, current_script, script_size, size=3):
         last_sent = sent_script[-1]
         last_sent += "."
         sent_script[-1] = last_sent
-        print("added period: " + last_sent)
+        logging.debug("added period: %s" %(last_sent))
 
     return (' '.join([item for item in sent_script]))
 
