@@ -1,0 +1,289 @@
+ Should auld acquaintance be forgot.
+And
+all
+that
+JAZZ.
+THAT’S RIGHT FRIENDS it’s Game of the Year season!
+Which means it's time for us to hop on those message boards, chat about our favorite games,
+and tear out each other’s throats when someone expresses an opinion
+that is slightly different from our own.
+By this point, pretty much every gaming publication has announced their Game of the Year...
+uhh...
+which means that I'm a bit late.
+Anything that I say is just a drop in the ocean of discourse.
+No one wants to hear my opinion.
+WHICH IS WHY I AM NOT EXPRESSING AN OPINION.
+I AM STATING A FACT.
+That’s right, I have devised a statistical, analytical, number-crunching formula
+that will SCIENTIFICALLY PROVE
+THE GAME OF THE YEAR.
+*hype 80s music plays*
+They said it couldn’t be done.
+A bias-free formula to calculate the game of the year?
+That's a fool’s errand, Brian!
+You are a fool!
+They called me a fool!
+But do I look like a fool to you?
+I’ve done it, and with the knowledge I have found, I can go ahead and assuage any arguments
+you might have with your friends.
+There is nothing to debate anymore, there is only the truth, that the best game of the year is...
+hidden somewhere, um, in these spreadsheets.
+I'm gonna be honest with you, I haven’t...
+there are a lot of numbers.
+And I haven't had the time to, uh, do them all just yet.
+But it’s only December 14th.
+This video is set to go up on the 30th, which means I still have two weeks for new games
+to come in before I can really call which game is the game of the year.
+But I've at least finished the formula, and I’ve tested it on a few to make sure it
+runs correctly.
+And everyone knows that you can’t get full credit unless you show your work.
+So let me show you how I made it.
+First thing you gotta do when you're making a GOTY formula is find your list of games.
+And obviously we're going to have to choose every single game that was released this year
+in order for us to say that it is scientifically accurate.
+So if we just go ahead and take a look at Steam and see how many were released since
+January 1st 20-hmm.
+That's over 15,000.
+You can't make me do that, legally.
+That's not in my contract.
+Right?
+I can't... they can't legally make me do that.
+Look, as much as video game reviews can be an imperfect reflection of the person who
+is writing them, they are still a pretty solid baseline for which video games mattered in our culture.
+Even if a review is bad, it still means it was good enough for someone to spend time on it.
+So I went Metacritic and I took all the games that were rated 80 or above, and at
+the time of writing this script, that was 181 games.
+So I'm gonna do the formula for all of those.
+Some of these games were DLCs or re-releases onto new platforms.
+The Switch alone resurrected about a dozen candidates from years past.
+But since they were released this year, they are still technically in the running.
+Fight me.
+Now that we have the list, it's time to make the formula, and it might surprise you to
+hear this, but I have not been in a pure mathematics class in about five years.
+So I reached out to some scientists.
+And then none of them got back to me.
+So I called my old roommate.
+“Hey, I’m Nicholas.
+I’m a graduate student studying exoplanet atmospheres.”
+Nick is working toward a PhD at MIT, and though I was a bit worried about reaching out to
+him since his specialization is in astrophysics and not stats about video games,
+he assuaged all my fears.
+Brian - "Would you say you are a math expert?”
+Nick - “No.”
+We chatted for about a half an hour, diving deep into the scientific method and the selfless
+goals of discovery.
+Brian - “If I invent a unit... can I trademark it.”
+Nick - “I think your final score should be, like, in Gilberts or whatever.”
+Brian - "OK!"
+And we finished our chat with the reassurance that this formula was not only going to help
+the gaming community, but the scientific community at large.
+Brian - “Do you think if I wrote this up, I could get it published in, like, Nature?"
+Nick - “No.”
+So where to do we go from here now that we have been scientifically rejuvenated?
+It's time to build the criteria.
+What specifically makes a game of the year?
+Number one, what is the game worth?
+We're not just talking about monetary worth, we're also talking about the amount of enjoyment
+you get while playing the game.
+Number two, how them graphics?
+We’re trying to find specific numbers associated with these games, and graphics is just a bunch
+of numbers anyway, so this will be a useful part.
+Number three, how did it affect the cultural miasma?
+Look, it’s all about those google results, how many people are talking about the game?
+And most importantly, is the game art?
+I've figured it out.
+Which means that no one has to write any more goddamn thinkpieces about this topic ever again!
+Given these four criteria, I sat down with Tara Long, former bioinformatics researcher
+and also my current boss.
+She and I figured out a formula that will end up with a numerical value that will tell
+us the game of the year.
+The higher the number, the better the game.
+We’ll start with game worth.
+Now it’s hard for us to find how worth it a game is to play from a numerical standpoint,
+but if you take Metacritic’s score as a percentage of the game you enjoy, and you
+multiply that by the average amount of minutes each playthrough takes using the stats from
+howlongtobeat.com, then you end up with a number of minutes you have spent enjoying said game.
+Now, to tie in material worth, we want to go ahead and take in the original listed price
+of the game and divide it by this number so that way we can end up with a DPM: dollars
+per minute enjoyed.
+Now, it’s hard to decide if you want a high or a low DPM, because some people want the
+most bang for their buck, while others are willing to spend a little bit more for a really
+well-enjoyed minute.
+But just to standardize this, I'm going to assume lower is better — that means you've
+paid less per minute you've enjoyed — and that way I can use it to divide literally
+the rest of the equation.
+HOW BOUT THEM GRAPHICS?
+In the past few years, people have cared less and less about how many
+polygons you've got on the screen and more about the style.
+But one thing that hasn't changed is frame rate.
+People want the most frames per second.
+So, factually, the more frames, the better.
+That means we're going to go ahead and take the highest frame rate available in the game
+and we're gonna multiply that by the seconds of average playthrough, again from howlongtobeat.com.
+And that will give us the amount of frames per game.
+The game frames mainframe.
+But how many frames does a gamer game in the gameframe mainframe?
+That's a good question.
+Now if you go ahead and you take your frames per game and divide it by the number of gamers,
+I’m talking about however many copies have been sold or however many number of downloads
+there have been, then that's going to leave you with frames per game per gamer, and that’s
+a really important number, because if you have 200,000 frames per game and you have
+200,000 gamers, that's 200,000 gamers that have only had one frame per game per gamer.
+And that is no good, is it?
+Is it?
+I actually have... um, I'm a little confused now.
+We're gonna take frames per game per gamer and we're gonna put it on the top of this
+equation, because we want it to be the biggest number possible.
+And now it’s time for cultural relevancy.
+We want our games of the year to be big and brash and bold and boisterous, letting people
+outside of the gaming world know,
+Hey!
+This is a thing!
+So how do we judge a game’s effect on the world at large?
+Well, we go ahead and we take all of the Google results that come up when you search
+the game's full name and the word game.
+But that’s not everything, right?
+That's just the bare minimum.
+It's like saying, “This dude’s bad haircut is important just because a lot of people are talking about it,”
+which I know isn’t true from personal experience.
+So I went on twitter and I asked you lovely folks what descriptors you expect to see in
+descriptions of games of the year.
+And you gave me a lot.
+So I went ahead and I plugged all those into Google’s advanced search along with the
+game's name, and I took those results and I multiplied it by the base Google search.
+And I got very big numbers.
+But don't worry, we're going to bring these numbers down to size, because some of the
+descriptions you sent in were actually pretty negative descriptions of games.
+So I did a Google search using those descriptions, and then I multiplied those results by one
+plus the number of Funko Pops made of characters in the game,
+which is objectively a terrible thing.
+Now this is going to leave you with BCE, or your base cultural effect, and we're gonna
+multiply that by our FPGPG in order to get a pretty big number.
+But before we’re done with cultural effect, I want you to ask yourself, is this the culture at large?
+Does this go outside of our gaming bubble?
+There’s really only one way to tell that, and that's by using the M.O.M. variable,
+which stands for: "My Own Mother."
+So I called my own mother for help.
+"Hello, Brian, I'm a follower and a subscriber as well as your mother."
+Brian - "That's very good to hear.
+I... you support me so well and I appreciate that.
+I should ask you, Mom, would you consider yourself a gamer?"
+Mom - "When I play Mario Kart with, like, grandchildren and things like that, I always
+go off the road."
+Brian - "That's, but, on purpose to let them feel better."
+Mom - "Very similar to my real-life driving skills, I find."
+Brian - "I have a list of 181 video games, now I know that's a lot.
+I'm basically gonna run through this, and I'm gonna ask you if you have heard of this game.
+Red Dead Redemption 2."
+Mom - "No."
+Brian - "God of War."
+Mom - "Yes!
+I have heard of that."
+Brian - "Oh, OK!"
+While subjecting my mom to a litany of 2018's best games,
+it became clear that she was very interested in the topic.
+Brian - "We're only 57 in, so we've still got another 130 to go."
+Mom - "I can't tell you how, what an exciting time this is for me."
+Brian - "Now you get taste of what it's like to do my job."
+Mom - "I tell you what, this is a lot of research into things that really have very little meaning."
+Brian - "You're right.
+It is."
+So once I had asked my mom about all of the games from the game of the year list, I was
+able to throw it into a boolean function.
+If mom knows game equals true, then that’s a plus one here.
+And then I could raise our base cultural effect to the power of mom, so if she doesn't know
+it, that's just to the power of one.
+If she does, that's to the power of two.
+Finally, it’s time for our fourth, and perhaps most important criteria: Is this game art?
+And when you start asking if something is art, then you really end up asking,
+"Why should we even be defining what is and isn't art?"
+And the only thing worse than discourse about "are games art?" is
+the discourse ABOUT the discourse of "are games art?"
+Look, art is experiential and that's a beautiful thing that should be allowed to flourish without
+having some pseudoscientific proof of greatness thrust upon it.
+Which is why I'm not proving greatness.
+Instead, this part of the formula is so revolutionary because I am proving art.
+So let's go ahead and throw this into...
+Shit, I ran out of space.
+You know what, this part wasn't that important.
+We're just gonna cut it.
+This big GOTY equation ends up with very large numbers, which would be too hard to show all of.
+So I needed to make a new unit.
+Something I could reduce them all down to.
+I plugged in my favorite game of the year, Celeste, and I used that to be our new baseline.
+Celeste equals one BDG.
+Or Big Determinant of Game.
+Everything else will be reduced down using Celeste’s score to a scale of BDGs.
+So that's it.
+That’s the entire formula.
+And if you'll excuse me, I have to go do my dark bidding on these spreadsheets and I will
+come back to you right now.
+December 30th.
+New year is at our doorstep.
+Knock knock!
+Who’s there?
+It’s 2019!
+Come on in, hope you're not as big of an asshole as the past few of your friends!
+I spent the past two weeks crunching the numbers, and it is my honor to announce that
+2018’s scientifically calculated game of the year, with 19...
+trillion BDGs...
+is Fortnite.
+That can't be the right number, I'm gonna...
+No, that's right.
+You remember when Pluto stopped being a planet, and the scientists were like,
+"Hey, that's just what the definitions say!"
+And we were like,
+"Hey, scientists, maybe your definitions are busted!"
+Maybe my formula is busted.
+The fact that God of War got 2.1 million BDGs and Red Dead Redemption 2 got 0.1 BDG...
+Maybe I shouldn't have made my mom's knowledge of the game an exponential factor.
+Brian - "You know Tetris.
+You would really like this Tetris..."
+Mom - *sings the entire Tetris song*
+No, I stand by that decision.
+Let’s be honest, the stats I was using definitely favored cultural importance, and Fortnite’s
+cultural effect was orders of magnitude larger than any other game this year.
+And though I've never played Fortnite
+— which proves my lack of bias and also that I’m professionally irresponsible —
+there can be no denying that it has made a lasting impact
+outside of the video game world.
+It’s the only nonseries game that my mom knew about.
+And regardless of how you feel about the Fortnite, it drew together a collection of people that
+might not have otherwise connected, and that’s a valuable thing.
+And even when your Uncle Devin comes up to you at the holiday get together and says,
+“HEY BRIAN, WHAT IN THE HECK IS THIS FORTNITE THING?”
+it gives you a common ground to chat,
+and you really haven't chatted with Uncle Devin in a while.
+You should call him more often.
+He wants to show you his Civil War books.
+And his collection of swords.
+But if you’re upset, and you didn’t IMMEDIATELY close this YouTube tab to send me an angry tweet,
+I’ve got an extra little gift for you.
+It's a new formula.
+GOTY equals x times 1 quadrillion.
+And x equals your favorite game.
+Of this year.
+Now you can go ahead and tell your friends that Brian scientifically proved that my favorite game
+is the game of the year, and then you can share them this link,
+and then they won’t click on it because it’s a 15 minute video, so your secret is safe with me.
+And to be honest, your favorite game deserves it,
+because if you liked it enough to call it your game of the year,
+then it must be pretty meaningful to you,
+and no one can take that away.
+So congratulations, Fortnite, and congratulations, your favorite game.
+Here’s hoping 2019 is full of wonderful games and even more wonderful experiences.
+*wink*
+Happy New Year.
+OH.
+OH MY GOD THAT IS SO HOT.
+OHHH MY GOD.
+IT WAS SUPPOSED TO BE PROP WATER, PAT.
+OH I PROBABLY JUST LIKE RUINED THIS MIC, TOO.
+JESUS, PAT.
+I TOLD YOU IT WAS PROP WATER.
+GOD.
+I'm okay.
+Mom - "Does enthusiasm count or anything like that?
+Should it just be, or just be, just bare bones..."
+Brian - "Mom, to be honest, I don't think you can do this not enthusiastically, so,
+you're gonna be fine." 

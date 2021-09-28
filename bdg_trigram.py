@@ -75,6 +75,12 @@ logging.debug("file after stop_words removed: %s" %(transcripts_removed_list))
 transcripts_trigram = nltk.trigrams(transcripts_removed_list)
 logging.debug("file trigram: %s" %(transcripts_trigram))
 
+# doesnt support trigrams -- look it up!!
+# output tuple -- wrap first two items \\ tuple >> (item item) item
+# word net -- snowball -- part of speech
+# part of speech as condition to cfd {noun: 4}
+# multiple condtitions -- multicfd??
+# if doing multiple dif cfds haves to work with probabilities!!
 master_cfd = nltk.ConditionalFreqDist(transcripts_trigram)
 print(master_cfd)
 logging.debug("cfd created %s" %(master_cfd))
